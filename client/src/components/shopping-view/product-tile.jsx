@@ -31,21 +31,22 @@ function ShoppingProductTile({ product, handleGetProductDetails, handleAddtoCart
                         alt={product?.title}
                         className="w-full h-[300px] object-cover rounded-t-lg"
                     />
-                    {
-                        product?.totalStock === 0 ?
-                            <Badge className="absolute top-2 left-2 bg-red-600 hover:bg-red-700">
+                    <div className="absolute top-2 left-2 flex gap-2">
+                        {product?.salePrice > 0 && (
+                            <Badge className="bg-red-600 hover:bg-red-700">
+                                Sale
+                            </Badge>
+                        )}
+                        {product?.totalStock === 0 ? (
+                            <Badge className="bg-red-600 hover:bg-red-700">
                                 Out of stock
-                            </Badge> : product?.totalStock < 10 ?
-                                <Badge className="absolute top-2 left-2 bg-red-600 hover:bg-red-700">
-                                    {`Only ${product?.totalStock} left!`}
-                                </Badge> :
-
-                                product?.salePrice > 0 ?
-                                    <Badge className="absolute top-2 left-2 bg-red-600 hover:bg-red-700">
-                                        Sale
-                                    </Badge>
-                                    : null
-                    }
+                            </Badge>
+                        ) : product?.totalStock < 10 ? (
+                            <Badge className="bg-red-600 hover:bg-red-700">
+                                {`Only ${product?.totalStock} left!`}
+                            </Badge>
+                        ) : null}
+                    </div>
                 </div>
                 <CardContent className="p-4">
                     <h2 className="text-xl font-bold mb-2">{product?.title}</h2>
