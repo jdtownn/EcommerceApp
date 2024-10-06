@@ -21,7 +21,7 @@ function AddressCard({ addressInfo, handleDeleteAddress, handleEditAddress, setC
                 <Label>Phone: {addressInfo?.phone}</Label>
                 <Label>Notes: {addressInfo?.notes}</Label>
             </CardContent>
-            <CardFooter className="flex justify-between p-3">
+            <CardFooter className="flex justify-between p-3 gap-2">
                 <Button onClick={() => handleEditAddress(addressInfo)}>Edit</Button>
                 <Button onClick={() => handleDeleteAddress(addressInfo)}>Delete</Button>
             </CardFooter>
